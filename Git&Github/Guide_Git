@@ -1,0 +1,219 @@
+//for git and github
+
+git config --global user.name "  "
+git config --global user.email "  "
+
+//in vs code 
+    git clone (github repository link)
+    cd (folder name)
+    // create a new file(the goal is that new file pushed to github) that folder is now untracked (need to change github file before  github)
+
+    git add (filename)
+    git status  // now see the difference a green line text appear
+    git commit -m "new file is now added"
+    git push origin main // for push to the github(main branch)
+
+    //again same process for delete the file (just delete  the file here) after that 1.git add filename 2.git commit -m "deleted" 3. git push origin main ,,, here the add name is not mean as adding new file on the folder,it representing stageing area
+
+    //if i created file in github page now i need to get that file in my vscode so .the command is 
+    
+    git pull
+2.// this is part two
+
+// now the task is create a folder and files in local system and push to github directly
+    cd .. //for back to folder
+    git init
+    git status
+    git add . //represent the if i edited 100 files ,icant add and commit all files, so use dot to add all untracked files
+    git commit -m "commit message"
+    //now we cannt directly push the files to github becz ,we dont have repo on there,if we try  to push it shw error
+    git remote add origin "link of repo u created"
+    git branch // it ill show * master
+    git push origin main // this case shows error
+    // you can handlle this is two ways 
+     1. git push origin master
+     2.git branck -M main // changing the name of origin
+    //now you can use the  normal code ,i changed the origin name master to main
+    git push origin main
+    git branck -a // listing repos in my branch
+    git checkout (branckname) // for moving one to another branch
+    git diff (branch name) // show the difference between two branches
+    // this branch is for collabrative works ,asigned to seperate peoples,they done the work and push the file on corresponding branch ,after the verfication the admin add to the main branch
+    git merge (branchname eg: main) //if you are in onther branch (after merge puss the files to desired branch)
+
+    //in high development project they wont give main branch  access in that cause we meet pull request option
+    //git conflict means simulteeuously summit the changes from various branched lead to collabse the gitup
+    // if two persons works the code if 1person summited the work,but the 2nd person start the work tooo late,in that cause the 2person need too pull the main branch,because the 1person already finished there work and push to main branch,so i pull the code from main branch..
+    git pull orgin main// this is command to get the main branch files to desired persons
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------=======================================================================================================================================================================================================================================================
+
+Git and GitHub Complete Guide
+1. Configuring Git
+Before using Git for the first time, it's essential to configure your user information, like name and email. This information will be used for every commit you make.
+
+Run the following commands in your terminal or command prompt:
+
+bash
+Copy code
+git config --global user.name "Your Name"
+git config --global user.email "your-email@example.com"
+2. Cloning a Repository in VS Code
+To clone an existing repository from GitHub and work on it locally:
+
+Open Visual Studio Code.
+
+Use the terminal to run the following command to clone the repository:
+
+bash
+Copy code
+git clone <github-repository-link>
+Change the directory to the cloned repository:
+
+bash
+Copy code
+cd <folder-name>
+Create a new file within this folder. At this point, the new file will be untracked by Git. To track it, you need to add it to the staging area.
+
+3. Adding, Committing, and Pushing Changes
+After creating or modifying a file, follow these steps to push changes to GitHub:
+
+Stage the file:
+
+bash
+Copy code
+git add <filename>
+Check the status:
+
+bash
+Copy code
+git status
+You will see the file in green, indicating it is staged.
+
+Commit the changes:
+
+bash
+Copy code
+git commit -m "Your commit message"
+Push the changes to the GitHub repository (main branch):
+
+bash
+Copy code
+git push origin main
+4. Deleting a File and Pushing the Changes
+If you want to delete a file and reflect that change in the repository:
+
+Delete the file locally.
+Stage the changes:
+bash
+Copy code
+git add <filename>
+Commit the changes:
+bash
+Copy code
+git commit -m "deleted"
+Push the changes to GitHub:
+bash
+Copy code
+git push origin main
+Note: The git add command here is used to stage changes, not to add a new file.
+
+5. Pulling Changes from GitHub
+If you create or modify a file directly on the GitHub page, you can update your local repository to match the remote repository using:
+
+bash
+Copy code
+git pull
+6. Creating a Local Folder and Pushing to GitHub
+To create a new folder and files locally and push them directly to a new GitHub repository:
+
+Navigate to the parent directory:
+
+bash
+Copy code
+cd ..
+Initialize a new Git repository:
+
+bash
+Copy code
+git init
+Check the repository status:
+
+bash
+Copy code
+git status
+Stage all changes:
+
+bash
+Copy code
+git add .
+The . symbol adds all modified and untracked files to the staging area.
+
+Commit the changes:
+
+bash
+Copy code
+git commit -m "Initial commit"
+Add a remote repository:
+
+bash
+Copy code
+git remote add origin <link-of-new-repo>
+Push changes to the repository: You might encounter an error if you push directly to the main branch. Use one of the following methods to fix it:
+
+Push to the master branch:
+
+bash
+Copy code
+git push origin master
+Or rename the branch to main:
+
+bash
+Copy code
+git branch -M main
+git push origin main
+7. Working with Branches
+Branches allow you to work on different versions of a project simultaneously.
+
+List all branches:
+
+bash
+Copy code
+git branch -a
+Switch between branches:
+
+bash
+Copy code
+git checkout <branch-name>
+Show differences between branches:
+
+bash
+Copy code
+git diff <branch-name>
+Merge branches:
+
+bash
+Copy code
+git merge <branch-name>
+After merging, push the files to the desired branch.
+
+Branches are useful for collaborative work, where each person works on a different branch and pushes changes after verification.
+
+8. Handling Pull Requests and Conflicts
+In larger projects, developers often use pull requests for code review before merging into the main branch. Conflicts can occur when multiple changes are submitted simultaneously. To resolve conflicts:
+
+Ensure your branch is updated by pulling the latest changes:
+
+bash
+Copy code
+git pull origin main
+Resolve any conflicts manually and then commit and push the resolved changes.
+
+Pull requests ensure code quality and prevent conflicts when integrating changes from multiple contributors.
+
+9. Understanding Git Conflicts
+A Git conflict occurs when multiple people make changes to the same part of a file or branch simultaneously. If the first person submits their changes, the second person needs to pull the latest changes before pushing theirs:
+
+bash
+Copy code
+git pull origin main
+This will ensure they are working with the most recent version and reduce the chances of conflicts.
